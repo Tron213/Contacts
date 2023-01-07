@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'cont.ui'
+# Form implementation generated from reading ui file 'conta.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,22 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(700, 540)
+        MainWindow.resize(653, 479)
         MainWindow.setStyleSheet("background-color: #002137;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.tableView = QtWidgets.QTableView(self.centralwidget)
-        self.tableView.setGeometry(QtCore.QRect(10, 10, 481, 521))
-        self.tableView.setStyleSheet("QTableView{\n"
-"    background-color: #002137;\n"
-"    border-radius:8px;\n"
-"    color:#ffffff;\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"    }")
-        self.tableView.setObjectName("tableView")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(510, 10, 181, 31))
+        self.lineEdit.setGeometry(QtCore.QRect(460, 10, 181, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.lineEdit.setFont(font)
@@ -37,21 +27,21 @@ class Ui_MainWindow(object):
         self.lineEdit.setStyleSheet("color: #fff;")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(510, 61, 181, 31))
+        self.lineEdit_2.setGeometry(QtCore.QRect(460, 61, 181, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setStyleSheet("color: #fff;")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(510, 111, 181, 31))
+        self.lineEdit_3.setGeometry(QtCore.QRect(460, 111, 181, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.lineEdit_3.setFont(font)
         self.lineEdit_3.setStyleSheet("color: #fff;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(510, 160, 121, 41))
+        self.pushButton.setGeometry(QtCore.QRect(460, 160, 121, 41))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -69,14 +59,14 @@ class Ui_MainWindow(object):
 "")
         self.pushButton.setObjectName("pushButton")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(510, 350, 181, 31))
+        self.lineEdit_4.setGeometry(QtCore.QRect(460, 350, 181, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.lineEdit_4.setFont(font)
         self.lineEdit_4.setStyleSheet("color: #fff;")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(510, 400, 121, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(460, 400, 121, 41))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -93,6 +83,23 @@ class Ui_MainWindow(object):
 "QPushButton:focus{position:relative;\n"
 "    top:1px;}")
         self.pushButton_2.setObjectName("pushButton_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(460, 270, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(7)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 7pt \"MS Shell Dlg 2\";")
+        self.label.setObjectName("label")
+        self.tableView = QtWidgets.QTableView(self.centralwidget)
+        self.tableView.setGeometry(QtCore.QRect(10, 10, 400, 441))
+        self.tableView.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);")
+        self.tableView.setObjectName("tableView")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -103,3 +110,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "Добавить"))
         self.pushButton_2.setText(_translate("MainWindow", "Поиск"))
+        self.label.setText(_translate("MainWindow", "TextLabel"))

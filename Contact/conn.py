@@ -1,26 +1,46 @@
-from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication
-import sys
-from PyQt6.QtSql import *
 import sqlite3
+from PyQt5 import QtWidgets
+import interf
+from PyQt5 import QtWidgets, QtSql
+import sys
+from PyQt5.QtSql import *
 
-#------------sql
+db = sqlite3.connect('contactss.db')
+cursor = db.cursor()
 
-db=sqlite3.connect('contactss.db')
-sql=db.cursor()
-def add(self):
-    num=self.lineEdit.text()
-    name=self.lineEdit_2.text()
-    job=self.lineEdit_3.text()
-    sql.execute(f"INSERT INTO contacts VALUES ('{num}','{name}',{job})")
-    db.commit
-#--------------pyqt
+cursor.execute('''CREATE TABLE IF NOT EXISTS usera(
+    num TEXT,
+    name TEXT,
+    job TEXT
+)''')
+db.commit()
 
+class Registration(QtWidgets.QMainWindow, interf.Ui_MainWindow):
+    def __init__(self):
+        super(Registration, self).__init__()
+        self.setupUi(self)
+        self.label.setText('')
+        self.lineEdit.setPlaceholderText('Введите номер')
+        self.lineEdit_2.setPlaceholderText('Введите имя')
+        self.lineEdit_3.setPlaceholderText('Еще')
+        self.lineEdit_4.setPlaceholderText('Поиск')
+        self.setWindowTitle('Contact')
+        
 
-Form, Window = uic.loadUiType('cont.ui')
+        self.pushButton.pressed.connect(self.reg)
+    def reg(self):
+        num = self.lineEdit.text()
+        name = self.lineEdit_2.text()
+        job = self.lineEdit_3.text()
 
-db_name = 'C:\Contact\contactss.db'
-
+        cursor.execute(f'SELECT num FROM usera WHERE num="{num}"')
+        if cursor.fetchone() is None:
+            cursor.execute(f'INSERT INTO usera VALUES ("{num}", "{name}", "{job}")')
+            self.label.setText(f'Номер записан')
+            db.commit()
+        else:
+            self.label.setText('Номер уже записан')
+db_name = 'C:/Users/f4nan/OneDrive/Документы/GitHub/Contacts/Contact/contactss.db'
 
 def connect(db_name):
     db=QSqlDatabase.addDatabase('QSQLITE')
@@ -35,16 +55,13 @@ if not connect(db_name):
 else:
     print('Подключено')
 
-cont=QSqlTableModel()
-cont.setTable('contacts')
-cont.select()
 
-app = QApplication([])
-window = Window()
-form=Form()
-form.setupUi(window)
-form.pushButton.clicked.connect(add)
-form.tableView.setModel(cont)
+userd = QSqlTableModel()
+userd.setTable('usera')
+userd.select()
 
+App = QtWidgets.QApplication([])
+window = Registration()
+window.tableView.setModel(userd)
 window.show()
-app.exec()
+App.exec()
