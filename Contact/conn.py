@@ -1,5 +1,4 @@
 import sqlite3
-from PyQt5 import QtWidgets
 import interf
 from PyQt5 import QtWidgets, QtSql
 import sys
